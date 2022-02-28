@@ -1,9 +1,21 @@
 import React from "react";
+import Task from "./Task";
 
-function TaskList() {
+function TaskList({visbelItem, deleteClick}) {
+
+let render= visbelItem.map(el=>(
+
+  <Task
+  key={el.text}
+  category={el.category}
+  text={el.text}
+  deleteClick={deleteClick}
+  />
+))
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {render}
     </div>
   );
 }
